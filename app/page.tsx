@@ -1,17 +1,25 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
+import { ProblemSection } from "@/components/problem-section"
+import { SolutionSection } from "@/components/solution-section"
+import { FeaturesSection } from "@/components/features-section"
+import { HowItWorksSection } from "@/components/how-it-works-section"
+import { CtaSection } from "@/components/cta-section"
+import { Footer } from "@/components/footer"
+import { ScrollAnimator } from "@/components/scroll-animator"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#1C1C1C]">
       <Navbar />
-      <Hero
-        title="Build smarter tools for modern teams"
-        subtitle="Streamline your workflow and boost productivity with intuitive solutions. Security, speed, and simplicity—all in one platform."
-        eyebrow="Next-Gen Productivity"
-        ctaLabel="Get Started"
-        ctaHref="#"
-      />
+      <Hero />
+      <ProblemSection />
+      <SolutionSection />
+      <FeaturesSection />
+      <HowItWorksSection />
+      <CtaSection />
+      <Footer />
+      <ScrollAnimator />
     </main>
   )
 }

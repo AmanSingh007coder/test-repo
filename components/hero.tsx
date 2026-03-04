@@ -3,21 +3,7 @@
 import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-interface HeroProps {
-  eyebrow?: string
-  title: string
-  subtitle: string
-  ctaLabel?: string
-  ctaHref?: string
-}
-
-export function Hero({
-  eyebrow = "Innovate Without Limits",
-  title,
-  subtitle,
-  ctaLabel = "Explore Now",
-  ctaHref = "#",
-}: HeroProps) {
+export function Hero() {
   return (
     <section
       id="hero"
@@ -34,30 +20,28 @@ export function Hero({
         [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#1C1C1C_70%,transparent_110%)]"
       />
 
-      {/* Radial Accent / Globe Shape */}
+      {/* Radial Accent / Globe Shape with subtle animation */}
       <div
         className="absolute left-1/2 top-[calc(100%-90px)] lg:top-[calc(100%-150px)] 
         h-[500px] w-[700px] md:h-[500px] md:w-[1100px] lg:h-[750px] lg:w-[140%] 
         -translate-x-1/2 rounded-[100%] border-[#6A0DAD] bg-[#1C1C1C] 
         bg-[radial-gradient(closest-side,#1C1C1C_82%,#6A0DAD)] 
-        animate-fade-up"
+        animate-globe-pulse"
       />
 
       {/* Eyebrow Badge */}
-      {eyebrow && (
-        <a href="#" className="group inline-block">
-          <span
-            className="text-sm text-[#c9a0ff] mx-auto px-5 py-2 
-            bg-gradient-to-tr from-[#6A0DAD]/15 via-[#6A0DAD]/10 to-transparent  
-            border-[2px] border-[#6A0DAD]/30 
-            rounded-3xl w-fit tracking-tight uppercase flex items-center justify-center
-            transition-colors hover:border-[#6A0DAD]/50"
-          >
-            {eyebrow}
-            <ChevronRight className="inline w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-          </span>
-        </a>
-      )}
+      <a href="#features" className="group inline-block">
+        <span
+          className="text-sm text-[#c9a0ff] mx-auto px-5 py-2 
+          bg-gradient-to-tr from-[#6A0DAD]/15 via-[#6A0DAD]/10 to-transparent  
+          border-[2px] border-[#6A0DAD]/30 
+          rounded-3xl w-fit tracking-tight uppercase flex items-center justify-center
+          transition-colors hover:border-[#6A0DAD]/50"
+        >
+          AI-Powered Security for CI/CD
+          <ChevronRight className="inline w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+        </span>
+      </a>
 
       {/* Title */}
       <h1
@@ -66,30 +50,39 @@ export function Hero({
         bg-clip-text py-6 text-5xl font-semibold leading-none tracking-tighter 
         text-transparent sm:text-6xl md:text-7xl lg:text-8xl"
       >
-        {title}
+        Stop finding bugs.
+        <br />
+        Start fixing them.
       </h1>
 
       {/* Subtitle */}
       <p
         className="animate-hero-fade-in mb-12 text-balance 
-        text-lg tracking-tight text-[#a0a0a0] 
+        text-lg tracking-tight text-[#a0a0a0] max-w-2xl mx-auto
         md:text-xl [animation-delay:200ms]"
       >
-        {subtitle}
+        ShieldCI scans every commit, detects vulnerabilities, generates AI fixes,
+        and raises pull requests — automatically. Security on autopilot.
       </p>
 
-      {/* CTA Button */}
-      {ctaLabel && (
-        <div className="flex justify-center animate-hero-fade-in [animation-delay:400ms]">
-          <Button
-            asChild
-            className="mt-[-20px] w-fit md:w-52 z-20 tracking-tighter text-center rounded-lg
-            bg-white text-[#1C1C1C] hover:bg-[#e8d5ff] text-base font-medium h-11 px-8"
-          >
-            <a href={ctaHref}>{ctaLabel}</a>
-          </Button>
-        </div>
-      )}
+      {/* CTA Buttons */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-hero-fade-in [animation-delay:400ms]">
+        <Button
+          asChild
+          className="w-fit md:w-52 z-20 tracking-tighter text-center rounded-lg
+          bg-white text-[#1C1C1C] hover:bg-[#e8d5ff] text-base font-medium h-11 px-8"
+        >
+          <a href="/signup">Get Started Free</a>
+        </Button>
+        <Button
+          asChild
+          variant="outline"
+          className="w-fit md:w-52 z-20 tracking-tighter text-center rounded-lg
+          border-[#6A0DAD]/40 bg-transparent text-white hover:bg-[#6A0DAD]/10 hover:border-[#6A0DAD]/60 text-base font-medium h-11 px-8"
+        >
+          <a href="#how-it-works">See How It Works</a>
+        </Button>
+      </div>
 
       {/* Bottom fade overlay */}
       <div

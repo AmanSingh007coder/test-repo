@@ -154,3 +154,31 @@
 .animate-hero-fade-up {
   animation: hero-fade-up 1s ease-out forwards;
 }
+
+/* Globe subtle pulse animation */
+@keyframes globe-pulse {
+  0%, 100% {
+    box-shadow: 0 0 60px rgba(106, 13, 173, 0.3), 0 0 120px rgba(106, 13, 173, 0.1);
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    box-shadow: 0 0 80px rgba(106, 13, 173, 0.5), 0 0 160px rgba(106, 13, 173, 0.15);
+    transform: translateX(-50%) scale(1.01);
+  }
+}
+
+.animate-globe-pulse {
+  animation: globe-pulse 6s ease-in-out infinite;
+}
+
+/* Scroll reveal animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.scroll-animate.scroll-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'NexGen - Build Smarter Tools for Modern Teams',
-  description: 'Streamline your workflow and boost productivity with intuitive solutions. Security, speed, and simplicity—all in one platform.',
+  title: 'ShieldCI - AI-Powered Security Remediation for CI/CD',
+  description: 'ShieldCI scans every commit, detects vulnerabilities, generates AI fixes, and raises pull requests automatically. Security on autopilot.',
   generator: 'v0.app',
   icons: {
     icon: [
