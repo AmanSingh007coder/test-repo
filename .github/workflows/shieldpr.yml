@@ -17,7 +17,7 @@ jobs:
       - name: 🚀 Boot CI/CD Staging Server
         run: |
           echo "Booting the PR code into a staging environment..."
-          python3 -m pip install -r requirements.txt --break-system-packages
+          python3 -m pip install flask --break-system-packages
           python3 app.py &
           sleep 3
 
