@@ -359,29 +359,6 @@ export default function ConnectRepoPage() {
                     </a>
                   </div>
                 </div>
-
-                {/* Initialize button */}
-                <button
-                  className="init-btn"
-                  onClick={() => handleInitialize(repo)}
-                  disabled={initializing === repo.fullName}
-                  style={{
-                    display: "flex", alignItems: "center", gap: "6px",
-                    padding: "8px 18px", borderRadius: "7px", cursor: "pointer",
-                    fontSize: "13px", fontWeight: 600, flexShrink: 0,
-                    background: "linear-gradient(135deg, #16a34a, #15803d)",
-                    border: "1px solid rgba(34,197,94,0.3)",
-                    color: "white",
-                    boxShadow: "0 1px 8px rgba(34,197,94,0.2)",
-                    transition: "opacity 0.15s ease",
-                    opacity: initializing === repo.fullName ? 0.6 : 1,
-                  }}
-                >
-                  {initializing === repo.fullName
-                    ? <><Loader2 size={13} style={{ animation: "spin 0.8s linear infinite" }} /> Initializing...</>
-                    : "Initialize"
-                  }
-                </button>
               </div>
             ))
           )}
