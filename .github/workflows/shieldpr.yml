@@ -1,0 +1,32 @@
+name: ShieldCI PR Security Audit
+
+# This tells GitHub to ONLY run this when a developer opens or updates a Pull Request
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  agentic-scan:
+    # This routes the job away from GitHub's cloud and directly to your laptop!
+    runs-on: self-hosted 
+
+    steps:
+      - name: 📥 Checkout Pull Request Code
+        uses: actions/checkout@v4
+
+      - name: 🚀 Boot CI/CD Staging Server
+        run: |
+          echo "Booting the PR code into a staging environment..."
+          python3 -m pip install -r requirements.txt --break-system-packages
+          python3 app.py &
+          sleep 3
+
+      - name: 🧠 Fetch & Run ShieldCI Agent
+        run: |
+          # 1. Download your DevSecOps Engine from your main repo
+          # CHANGE 'YOUR_USERNAME' TO YOUR ACTUAL GITHUB USERNAME!
+          git clone https://github.com/YOUR_USERNAME/shieldci-engine.git shield-engine
+          
+          # 2. Trigger the AI attack
+          cd shield-engine
+          python3 ai_attacker.py
